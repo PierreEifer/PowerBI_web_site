@@ -2,226 +2,625 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>POWER BI E-FUEL PROJECT – USER GUIDE</title>
+    <title>POWER BI E-FUEL PROJECT – User Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Optional: modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
     <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --accent: #00c18b;
+            --bg: #f5f7fb;
+            --text: #222;
+            --muted: #555;
+            --card-bg: #ffffff;
+            --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            padding: 40px 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #e5e5e5;
+            font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at top left, #e2f1ff 0, #f5f7fb 35%, #ffffff 100%);
         }
 
-        .page {
-            width: 800px;
-            min-height: 1000px;
-            margin: 0 auto 40px;
-            padding: 80px 90px;
-            background: #ffffff;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        .cover {
+        /* Top navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            background: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.96),
+                    rgba(255, 255, 255, 0.9)
+            );
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nav-logo {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #7de3b9);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            padding: 0.3rem 0.6rem;
+            border-radius: 999px;
+            color: var(--muted);
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(15, 118, 110, 0.06);
+            color: var(--primary-dark);
+        }
+
+        .nav-links a.primary-pill {
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .nav-links a.primary-pill:hover {
+            background: rgba(37, 99, 235, 0.16);
+        }
+
+        /* Layout */
+        main {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3.5rem;
+        }
+
+        /* Hero section */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+            align-items: center;
+            gap: 2.5rem;
+            padding: 2.5rem 2rem;
+            border-radius: 28px;
+            background: radial-gradient(circle at top left, #e0f2ff 0, #ffffff 45%, #f5f7fb 100%);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero-title {
+            font-size: clamp(1.9rem, 3vw, 2.3rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 36rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.3rem 0 1.8rem;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .badge.highlight {
+            border-color: rgba(56, 189, 248, 0.9);
+            color: #0369a1;
+            background: rgba(224, 242, 254, 0.9);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+        }
+
+        .btn {
+            border-radius: 999px;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease,
+                color 0.15s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #ffffff;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.27);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 28px rgba(37, 99, 235, 0.33);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-dark);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+        }
+
+        .btn-ghost:hover {
+            background: #ffffff;
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+        }
+
+        .btn span.icon {
+            font-size: 1.05rem;
+        }
+
+        .hero-logo {
+            justify-self: center;
             text-align: center;
         }
 
-        .cover h1 {
-            font-size: 28px;
-            letter-spacing: 1px;
-            margin: 0 0 16px;
+        .hero-logo-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 22px;
+            padding: 1.2rem 1.4rem 1.4rem;
+            box-shadow: var(--shadow-soft);
         }
 
-        .cover .dash {
-            font-size: 28px;
-            margin-bottom: 16px;
+        .hero-logo img {
+            max-width: 220px;
+            height: auto;
+            margin-bottom: 0.6rem;
         }
 
-        .cover h2 {
-            font-size: 24px;
-            margin: 0 0 80px;
+        .hero-logo-text {
+            font-size: 0.85rem;
+            color: var(--muted);
         }
 
-        .cover-logo {
+        /* Sections */
+        .section {
+            margin-top: 3rem;
+        }
+
+        .section-header {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .cover-logo img {
-            max-width: 260px;
-            margin-bottom: 14px;
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
-        .cover-logo p {
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.4;
+        .section-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
         }
 
-        h2.page-title {
+        .section-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem 1.4rem 1.5rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .card h3 {
             margin-top: 0;
-            font-size: 20px;
+            margin-bottom: 0.7rem;
+            font-size: 1rem;
         }
 
-        h3 {
-            margin-top: 24px;
-            margin-bottom: 8px;
-            font-size: 14px;
+        .card p {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.6;
         }
 
-        p {
-            margin: 0 0 10px;
-            font-size: 14px;
-            line-height: 1.5;
+        .list-title {
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+            color: #111827;
         }
 
         ul {
-            margin: 0 0 10px 18px;
+            margin: 0 0 0.9rem 1.1rem;
             padding: 0;
-            font-size: 14px;
+            list-style: disc;
+            font-size: 0.9rem;
+            color: var(--muted);
         }
 
         ul li {
-            margin-bottom: 4px;
+            margin-bottom: 0.3rem;
         }
 
-        strong {
-            font-weight: bold;
+        .pill-section-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #0f172a;
+            margin-bottom: 0.4rem;
+        }
+
+        .pill-section-title span.pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: #22c55e;
+        }
+
+        /* Data consistency note */
+        .note {
+            margin-top: 1rem;
+            border-left: 4px solid #f97316;
+            padding-left: 0.9rem;
+        }
+
+        .note-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: #9a3412;
+        }
+
+        .note p {
+            margin-bottom: 0.55rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.35);
+            padding: 1.4rem 1.5rem 1.6rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+                padding: 1.9rem 1.5rem 2.1rem;
+            }
+
+            .hero-logo {
+                order: -1;
+            }
+
+            .section-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            main {
+                padding-inline: 1rem;
+            }
+
+            .hero {
+                padding-inline: 1.25rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Cover page -->
-    <div class="page cover">
-        <h1>POWER BI E-FUEL PROJECT</h1>
-        <div class="dash">-</div>
-        <h2>USER GUIDE</h2>
-
-        <div class="cover-logo">
-            <!-- Update src to the correct logo path in your project -->
-            <img src="image/eifer_logo.png" alt="eifer logo" />
-            <p>European Institute for Energy Research<br />by EDF and KIT</p>
+<header>
+    <nav class="nav">
+        <div class="nav-left">
+            <div class="nav-logo"></div>
+            <span>Power BI E‑Fuel</span>
         </div>
-    </div>
+        <div class="nav-links">
+            <a href="#page1">Map of Projects</a>
+            <a href="#page2">Cumulative Metrics</a>
+            <a href="#page3">HESC Supply Chain</a>
+            <a href="#top" class="primary-pill">User Guide</a>
+        </div>
+    </nav>
+</header>
+
+<main id="top">
+    <!-- Hero / cover -->
+    <section class="hero">
+        <div>
+            <div class="hero-title">POWER BI E‑FUEL PROJECT</div>
+            <div class="hero-subtitle">
+                A concise guide to exploring global E‑Fuel projects, cumulative production metrics, and
+                the HESC (Liquified Hydrogen Energy Supply Chain) dashboard inside Power BI.
+            </div>
+
+            <div class="hero-badges">
+                <span class="badge highlight">User Guide</span>
+                <span class="badge">Interactive dashboards</span>
+                <span class="badge">Data filters</span>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#page1" class="btn btn-primary">
+                    <span class="icon">▶</span>
+                    Start with the Map
+                </a>
+                <a href="#page3" class="btn btn-ghost">
+                    <span class="icon">⛽</span>
+                    Jump to HESC overview
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-logo">
+            <div class="hero-logo-card">
+                <!-- Update src to your logo path -->
+                <img src="eifer8logo.png" alt="EIFER logo" />
+                <div class="hero-logo-text">
+                    European Institute for Energy Research<br />
+                    by EDF and KIT
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Page 1 -->
-    <div class="page">
-        <h2 class="page-title">Page 1: Map of E-Fuel Projects</h2>
-        <p>
-            This page displays an interactive world map showing all E-Fuel projects included in the
-            dataset. Each point on the map represents a project, and its color indicates the project
-            status (announced, operational, cancelled, etc.).
-        </p>
+    <section id="page1" class="section">
+        <div class="section-header">
+            <div class="section-title">Page 1 · Map of E‑Fuel Projects</div>
+            <div class="section-tag">Explore the global project landscape</div>
+        </div>
 
-        <h3>AVAILABLE FILTERS:</h3>
-        <ul>
-            <li><strong>Company</strong>: Displays projects associated with a specific company.</li>
-            <li><strong>Project</strong>: Allows selection of individual projects.</li>
-            <li><strong>Super region</strong>: Filters projects by geographic area (Europe, Asia, Africa, etc.).</li>
-            <li><strong>E-Fuel</strong>: Filters by the type of e-fuel (e-ammonia, e-methanol, e-kerosene, etc.).</li>
-        </ul>
+        <div class="section-grid">
+            <article class="card">
+                <h3>What you see</h3>
+                <p>
+                    This page displays an interactive world map showing all E‑Fuel projects included in the
+                    dataset. Each point on the map represents a project, and its color indicates the project
+                    status (announced, operational, cancelled, etc.).
+                </p>
+            </article>
 
-        <h3>HOW TO USE THIS PAGE:</h3>
-        <ul>
-            <li>Click on a geographic area to zoom in.</li>
-            <li>Use the filters on the left and right to focus the analysis on a specific company, e-fuel type, or region.</li>
-            <li>The total number of projects (shown in the bottom right) updates automatically based on selected filters.</li>
-        </ul>
-    </div>
+            <article class="card">
+                <div class="pill-section-title">
+                    <span class="pill-dot"></span>
+                    Available Filters
+                </div>
+                <ul>
+                    <li><strong>Company</strong>: Displays projects associated with a specific company.</li>
+                    <li><strong>Project</strong>: Allows selection of individual projects.</li>
+                    <li><strong>Super region</strong>: Filters projects by geographic area (Europe, Asia, Africa, etc.).</li>
+                    <li><strong>E‑Fuel</strong>: Filters by the type of e‑fuel (e‑ammonia, e‑methanol, e‑kerosene, etc.).</li>
+                </ul>
+
+                <div class="pill-section-title">
+                    <span class="pill-dot"></span>
+                    How to use this page
+                </div>
+                <ul>
+                    <li>Click on a geographic area to zoom in.</li>
+                    <li>Use the filters on the left and right to focus the analysis on a specific company, e‑fuel type, or region.</li>
+                    <li>The total number of projects (shown in the bottom right) updates automatically based on selected filters.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
 
     <!-- Page 2 -->
-    <div class="page">
-        <h2 class="page-title">Page 2: Cumulative Production of Chosen Metrics</h2>
-        <p>
-            This page visualizes the cumulative production of different metrics over time, such as CO₂
-            capture, e-fuel production, and hydrogen (H₂) production in ton/year.
-        </p>
+    <section id="page2" class="section">
+        <div class="section-header">
+            <div class="section-title">Page 2 · Cumulative Production of Chosen Metrics</div>
+            <div class="section-tag">Track long‑term production trends</div>
+        </div>
 
-        <h3>MAIN CHART:</h3>
-        <ul>
-            <li>The horizontal axis (X-axis) shows the year.</li>
-            <li>The vertical axis (Y-axis) shows the cumulative quantity (in tons per year).</li>
-            <li>The blue bars illustrate how production evolves over time for the selected metric.</li>
-        </ul>
+        <div class="section-grid">
+            <article class="card">
+                <h3>Main chart</h3>
+                <p>
+                    This page visualizes the cumulative production of different metrics over time, such as CO₂
+                    capture, e‑fuel production, and hydrogen (H₂) production in ton/year.
+                </p>
+                <ul>
+                    <li>The horizontal axis (X‑axis) shows the year.</li>
+                    <li>The vertical axis (Y‑axis) shows the cumulative quantity (in tons per year).</li>
+                    <li>The blue bars illustrate how production evolves over time for the selected metric.</li>
+                </ul>
+            </article>
 
-        <h3>AVAILABLE FILTERS:</h3>
-        <ul>
-            <li><strong>Metric</strong>: Choose between CO₂ capture, e-fuel production, or H₂ production.</li>
-            <li><strong>E-Fuel</strong>: Filters by type of e-fuel involved.</li>
-            <li><strong>Super region</strong>: Filters the data by geographic region.</li>
-        </ul>
+            <article class="card">
+                <div class="pill-section-title">
+                    <span class="pill-dot"></span>
+                    Available Filters
+                </div>
+                <ul>
+                    <li><strong>Metric</strong>: Choose between CO₂ capture, e‑fuel production, or H₂ production.</li>
+                    <li><strong>E‑Fuel</strong>: Filters by type of e‑fuel involved.</li>
+                    <li><strong>Super region</strong>: Filters the data by geographic region.</li>
+                </ul>
 
-        <h3>HOW TO USE THIS PAGE:</h3>
-        <ul>
-            <li>Select the desired metric at the bottom of the page to update the chart.</li>
-            <li>Use the filters to analyze production trends in a specific region.</li>
-            <li>The “Count of projects” indicator automatically updates based on the selected filters.</li>
-        </ul>
-    </div>
+                <div class="pill-section-title">
+                    <span class="pill-dot"></span>
+                    How to use this page
+                </div>
+                <ul>
+                    <li>Select the desired metric at the bottom of the page to update the chart.</li>
+                    <li>Use the filters to analyze production trends in a specific region.</li>
+                    <li>The “Count of projects” indicator automatically updates based on the selected filters.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
 
     <!-- Page 3 -->
-    <div class="page">
-        <h2 class="page-title">Page 3: HESC (Liquified Hydrogen Energy Supply Chain)</h2>
-        <p>
-            This page summarizes the HESC project. It lets you choose one project and see its geographic
-            context view and trace the hydrogen-to-e-fuel pathway from power source through CO₂ capture
-            and fuel output.
-        </p>
+    <section id="page3" class="section">
+        <div class="section-header">
+            <div class="section-title">Page 3 · HESC (Liquified Hydrogen Energy Supply Chain)</div>
+            <div class="section-tag">Follow the hydrogen‑to‑e‑fuel pathway</div>
+        </div>
 
-        <h3>AVAILABLE FILTERS:</h3>
-        <ul>
-            <li>Use the Project slicer on the left to select one project. This controls every other visual on the page.</li>
-        </ul>
+        <div class="section-grid">
+            <article class="card">
+                <h3>Overview</h3>
+                <p>
+                    This page summarizes the HESC project. It lets you choose one project and see its geographic
+                    context view and trace the hydrogen‑to‑e‑fuel pathway from power source through CO₂ capture
+                    and fuel output.
+                </p>
 
-        <h3>HOW TO USE THIS PAGE:</h3>
-        <ul>
-            <li>Select the desired project in the project filter.</li>
-            <li>
-                After selecting a project, click the Open Web Link – Click Here + Ctrl button.
-                Hold Ctrl while clicking to open the external reference in your browser.
-            </li>
-            <li>The map on the right shows the project’s location. Zoom/drag to confirm geographical context.</li>
-            <li>Power Source block shows the renewable feed (e.g., Solar).</li>
-            <li>
-                Electrolyze section lists technology, vendor, installed/published/estimated capacities.
-                Blank fields indicate missing published data; estimated values (e.g., 307 MW) provide the
-                model’s best guess.
-            </li>
-            <li>
-                Hydrogen production boxes display published vs. estimated tonnage per year.
-                Blank fields indicate missing published data.
-            </li>
-            <li>
-                CO₂ section captures emissions data: technology, emitter, source type capture company, and
-                captured CO₂ volumes. Blank fields indicate missing published data.
-            </li>
-            <li>
-                E‑fx pathway &amp; e‑fuel production show the synthetic fuel route plus published/estimated fuel
-                tonnage per year. Blank fields indicate missing published data. Use these to assess project
-                scale and compare them to other entries.
-            </li>
-        </ul>
+                <div class="pill-section-title">
+                    <span class="pill-dot"></span>
+                    Available Filter
+                </div>
+                <ul>
+                    <li>Use the <strong>Project</strong> slicer on the left to select one project. This controls every other visual on the page.</li>
+                </ul>
 
-        <h3>Data Consistency Watch</h3>
-        <p>
-            For some projects, the published values for H₂, CO₂, and E-Fuel are not consistent with each
-            other.
-        </p>
-        <p>
-            Estimations are made using stoichiometric coefficients for each type of fuel: ammonia,
-            methanol, methane, kerosene…
-        </p>
-        <p>
-            This explains the significant discrepancies between the estimate and the published values.
-        </p>
-    </div>
+                <div class="pill-section-title">
+                    <span class="pill-dot"></span>
+                    How to use this page
+                </div>
+                <ul>
+                    <li>Select the desired project in the project filter.</li>
+                    <li>
+                        After selecting a project, click the <strong>Open Web Link – Click Here + Ctrl</strong> button.
+                        Hold Ctrl while clicking to open the external reference in your browser.
+                    </li>
+                    <li>The map on the right shows the project’s location. Zoom/drag to confirm geographical context.</li>
+                    <li>Power Source block shows the renewable feed (e.g., Solar).</li>
+                    <li>
+                        Electrolyze section lists technology, vendor, installed/published/estimated capacities. Blank
+                        fields indicate missing published data; estimated values (e.g., 307 MW) provide the model’s best guess.
+                    </li>
+                    <li>
+                        Hydrogen production boxes display published vs. estimated tonnage per year. Blank fields indicate
+                        missing published data.
+                    </li>
+                    <li>
+                        CO₂ section captures emissions data: technology, emitter, source type capture company, and captured CO₂
+                        volumes. Blank fields indicate missing published data.
+                    </li>
+                    <li>
+                        E‑fx pathway &amp; e‑fuel production show the synthetic fuel route plus published/estimated fuel tonnage per year.
+                        Blank fields indicate missing published data. Use these to assess project scale and compare them to other entries.
+                    </li>
+                </ul>
+
+                <div class="note">
+                    <div class="note-title">Data Consistency Watch</div>
+                    <p>
+                        For some projects, the published values for H₂, CO₂, and E‑Fuel are not consistent with each other.
+                    </p>
+                    <p>
+                        Estimations are made using stoichiometric coefficients for each type of fuel: ammonia, methanol, methane,
+                        kerosene…
+                    </p>
+                    <p>
+                        This explains the significant discrepancies between the estimate and the published values.
+                    </p>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Quick tips</h3>
+                <ul>
+                    <li>Start by selecting a single project to avoid clutter.</li>
+                    <li>Use the map zoom to confirm the project’s geographic context.</li>
+                    <li>Compare published vs. estimated data to understand uncertainty.</li>
+                    <li>Look at CO₂ and E‑Fuel together to assess overall pathway efficiency.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    POWER BI E‑FUEL PROJECT · User Guide · European Institute for Energy Research (EIFER)
+</footer>
 
 </body>
 </html>
+
