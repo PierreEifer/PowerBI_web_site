@@ -9,20 +9,19 @@
 
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-soft: #dbeafe;
-            --primary-dark: #1d4ed8;
-            --accent: #22c55e;
-            --bg: #020617;
-            --bg-soft: #020617;
-            --card-bg: #020617;
-            --surface: #020617;
+            /* Green / Power BI-inspired palette */
+            --primary: #15803d;        /* main green */
+            --primary-dark: #14532d;   /* darker green */
+            --accent: #facc15;         /* yellow accent */
+            --bg: #020f07;
+            --card-bg: #020f07;
+            --surface: #020f07;
             --text: #f9fafb;
             --muted: #9ca3af;
             --border-subtle: rgba(148, 163, 184, 0.35);
             --radius-xl: 24px;
             --radius-lg: 18px;
-            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.65);
+            --shadow-soft: 0 18px 45px rgba(7, 15, 10, 0.85);
         }
 
         * {
@@ -40,8 +39,8 @@
             font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at top left, #1e3a8a 0, transparent 50%),
-                radial-gradient(circle at bottom right, #0f766e 0, transparent 55%),
+                radial-gradient(circle at top left, #14532d 0, transparent 55%),
+                radial-gradient(circle at bottom right, #166534 0, transparent 55%),
                 #020617;
             scroll-snap-type: y mandatory;
             overflow-y: scroll;
@@ -62,10 +61,10 @@
             backdrop-filter: blur(18px);
             background: linear-gradient(
                     to bottom,
-                    rgba(15, 23, 42, 0.96),
-                    rgba(15, 23, 42, 0.86)
+                    rgba(6, 30, 16, 0.98),
+                    rgba(6, 30, 16, 0.9)
             );
-            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+            border-bottom: 1px solid rgba(34, 197, 94, 0.6);
         }
 
         .nav {
@@ -89,11 +88,11 @@
             height: 32px;
             border-radius: 999px;
             background:
-                conic-gradient(from 210deg, #22c55e, #38bdf8, #6366f1, #22c55e);
+                conic-gradient(from 210deg, #22c55e, #facc15, #4ade80, #22c55e);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 22px rgba(56, 189, 248, 0.6);
+            box-shadow: 0 0 22px rgba(34, 197, 94, 0.7);
             position: relative;
             overflow: hidden;
         }
@@ -103,7 +102,7 @@
             position: absolute;
             inset: 4px;
             border-radius: inherit;
-            background: radial-gradient(circle at top, #0f172a, #020617);
+            background: radial-gradient(circle at top, #052e16, #020f07);
         }
 
         .nav-logo span {
@@ -147,19 +146,19 @@
 
         .nav-links a:hover {
             color: var(--text);
-            border-color: rgba(148, 163, 184, 0.6);
-            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(74, 222, 128, 0.6);
+            background: rgba(6, 30, 16, 0.95);
         }
 
         .nav-links a.primary-pill {
-            color: #e0f2fe;
-            border-color: rgba(37, 99, 235, 0.7);
-            background: rgba(30, 64, 175, 0.9);
+            color: #fefce8;
+            border-color: rgba(250, 204, 21, 0.9);
+            background: rgba(21, 128, 61, 0.95);
         }
 
         .nav-links a.primary-pill:hover {
-            background: rgba(30, 64, 175, 1);
-            border-color: rgba(59, 130, 246, 1);
+            background: rgba(22, 101, 52, 1);
+            border-color: rgba(250, 204, 21, 1);
         }
 
         /* Screens */
@@ -202,13 +201,13 @@
             border-radius: 999px;
             border: 1px solid rgba(148, 163, 184, 0.4);
             color: var(--muted);
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(6, 30, 16, 0.9);
         }
 
         .chip.primary {
-            border-color: rgba(59, 130, 246, 0.85);
-            background: radial-gradient(circle at top, rgba(37, 99, 235, 0.35), rgba(15, 23, 42, 0.95));
-            color: #e0f2fe;
+            border-color: rgba(74, 222, 128, 0.9);
+            background: radial-gradient(circle at top, rgba(34, 197, 94, 0.4), rgba(6, 30, 16, 0.98));
+            color: #ecfdf5;
         }
 
         .hero-title {
@@ -248,25 +247,25 @@
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #f9fafb;
-            box-shadow: 0 18px 36px rgba(37, 99, 235, 0.55);
+            color: #fefce8;
+            box-shadow: 0 18px 36px rgba(22, 163, 74, 0.7);
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 22px 44px rgba(37, 99, 235, 0.65);
+            box-shadow: 0 22px 44px rgba(22, 163, 74, 0.85);
         }
 
         .btn-ghost {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(6, 30, 16, 0.95);
             color: var(--muted);
             border: 1px solid rgba(148, 163, 184, 0.75);
         }
 
         .btn-ghost:hover {
             color: var(--text);
-            box-shadow: 0 14px 32px rgba(15, 23, 42, 0.75);
-            border-color: rgba(148, 163, 184, 1);
+            box-shadow: 0 14px 32px rgba(6, 30, 16, 0.9);
+            border-color: rgba(74, 222, 128, 1);
         }
 
         .btn span.icon {
@@ -282,10 +281,10 @@
         .logo-card {
             border-radius: var(--radius-lg);
             padding: 1rem 1.2rem;
-            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 45%),
-                        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.22), transparent 50%),
-                        rgba(15, 23, 42, 0.98);
-            border: 1px solid rgba(148, 163, 184, 0.45);
+            background: radial-gradient(circle at top left, rgba(74, 222, 128, 0.25), transparent 45%),
+                        radial-gradient(circle at bottom right, rgba(250, 204, 21, 0.25), transparent 50%),
+                        rgba(6, 30, 16, 0.98);
+            border: 1px solid rgba(34, 197, 94, 0.6);
             box-shadow: var(--shadow-soft);
             display: flex;
             align-items: center;
@@ -316,17 +315,17 @@
         .graph-card {
             border-radius: 18px;
             padding: 0.9rem;
-            background: radial-gradient(circle at top, rgba(37, 99, 235, 0.4), transparent 65%),
-                        rgba(15, 23, 42, 0.96);
-            border: 1px solid rgba(59, 130, 246, 0.4);
+            background: radial-gradient(circle at top, rgba(34, 197, 94, 0.4), transparent 65%),
+                        rgba(6, 30, 16, 0.96);
+            border: 1px solid rgba(34, 197, 94, 0.5);
             position: relative;
             overflow: hidden;
         }
 
         .graph-card.alt {
-            background: radial-gradient(circle at top, rgba(34, 197, 94, 0.4), transparent 65%),
-                        rgba(15, 23, 42, 0.96);
-            border-color: rgba(34, 197, 94, 0.45);
+            background: radial-gradient(circle at top, rgba(250, 204, 21, 0.4), transparent 65%),
+                        rgba(6, 30, 16, 0.96);
+            border-color: rgba(250, 204, 21, 0.55);
         }
 
         .graph-label {
@@ -351,7 +350,7 @@
         .graph-bar {
             flex: 1;
             border-radius: 999px;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.1), rgba(191, 219, 254, 0.8));
+            background: linear-gradient(to top, rgba(6, 30, 16, 0.1), rgba(187, 247, 208, 0.9));
         }
 
         .graph-bar:nth-child(1) { height: 32%; }
@@ -371,8 +370,8 @@
             position: absolute;
             inset: 0;
             border-radius: 12px;
-            background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.8));
-            opacity: 0.8;
+            background: linear-gradient(90deg, rgba(34, 197, 94, 0.2), rgba(250, 204, 21, 0.8));
+            opacity: 0.9;
             clip-path: polygon(0% 60%, 15% 50%, 30% 55%, 45% 40%, 60% 45%, 75% 30%, 90% 35%, 100% 25%, 100% 100%, 0% 100%);
         }
 
@@ -409,10 +408,10 @@
         }
 
         .card {
-            background: rgba(15, 23, 42, 0.94);
+            background: rgba(6, 30, 16, 0.96);
             border-radius: var(--radius-xl);
             padding: 1.5rem 1.5rem 1.6rem;
-            border: 1px solid rgba(148, 163, 184, 0.5);
+            border: 1px solid rgba(34, 197, 94, 0.5);
             box-shadow: var(--shadow-soft);
         }
 
@@ -437,7 +436,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: #e5e7eb;
+            color: #bbf7d0;
             margin: 0.8rem 0 0.35rem;
         }
 
@@ -460,88 +459,21 @@
             margin-bottom: 0.3rem;
         }
 
+        /* Container for Power BI screenshots */
         .fake-chart {
             height: 100%;
             border-radius: 20px;
-            padding: 1.2rem 1.3rem;
-            background:
-                radial-gradient(circle at top left, rgba(56, 189, 248, 0.3), transparent 60%),
-                radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.3), transparent 55%),
-                rgba(15, 23, 42, 0.98);
-            border: 1px solid rgba(59, 130, 246, 0.5);
-            box-shadow: var(--shadow-soft);
-            position: relative;
             overflow: hidden;
+            background: #000;
+            border: 1px solid rgba(34, 197, 94, 0.55);
+            box-shadow: var(--shadow-soft);
         }
 
-        .fake-chart-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            font-size: 0.8rem;
-        }
-
-        .fake-chart-pill {
-            padding: 0.16rem 0.5rem;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            color: #e5e7eb;
-            font-size: 0.75rem;
-        }
-
-        .fake-chart-grid {
-            position: absolute;
-            inset: 1.2rem 1.3rem;
-            background-image: linear-gradient(
-                    rgba(148, 163, 184, 0.12) 1px,
-                    transparent 1px
-            ),
-            linear-gradient(
-                    90deg,
-                    rgba(148, 163, 184, 0.12) 1px,
-                    transparent 1px
-            );
-            background-size: 100% 18px, 30px 100%;
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .fake-chart-bars {
-            position: relative;
-            height: 140px;
-            display: flex;
-            align-items: flex-end;
-            gap: 10px;
-        }
-
-        .fake-chart-bar {
-            flex: 1;
-            border-radius: 12px 12px 4px 4px;
-            background: linear-gradient(to top, rgba(37, 99, 235, 0.05), rgba(129, 140, 248, 0.95));
-            box-shadow: 0 8px 18px rgba(79, 70, 229, 0.7);
-        }
-
-        .fake-chart-bar:nth-child(1) { height: 24%; }
-        .fake-chart-bar:nth-child(2) { height: 48%; }
-        .fake-chart-bar:nth-child(3) { height: 35%; }
-        .fake-chart-bar:nth-child(4) { height: 62%; }
-        .fake-chart-bar:nth-child(5) { height: 88%; }
-
-        .fake-chart-line {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-
-        .fake-chart-line::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 999px;
-            background: linear-gradient(90deg, rgba(45, 212, 191, 0.1), rgba(45, 212, 191, 0.9));
-            clip-path: polygon(0% 78%, 20% 65%, 40% 70%, 60% 55%, 80% 50%, 100% 40%, 100% 100%, 0% 100%);
-            opacity: 0.95;
+        .report-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* Data consistency note */
@@ -582,14 +514,14 @@
             padding: 0.38rem 0.9rem;
             border-radius: 999px;
             border: 1px solid rgba(148, 163, 184, 0.65);
-            background: rgba(15, 23, 42, 0.98);
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
+            background: rgba(6, 30, 16, 0.98);
+            box-shadow: 0 10px 25px rgba(6, 30, 16, 0.9);
             transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
         }
 
         .pager a:hover {
-            background: rgba(30, 64, 175, 0.95);
-            border-color: rgba(59, 130, 246, 0.9);
+            background: rgba(22, 101, 52, 0.98);
+            border-color: rgba(74, 222, 128, 0.95);
             transform: translateY(-1px);
         }
 
@@ -700,7 +632,7 @@
 
             <div class="hero-right">
                 <div class="logo-card">
-                    <img src="image/logo.png" alt="EIFER logo" />
+                    <img src="image/eifer_logo.png" alt="EIFER logo" />
                     <div>
                         <div class="logo-text-main">European Institute for Energy Research</div>
                         <div class="logo-text-sub">
@@ -786,19 +718,7 @@
             </article>
 
             <aside class="fake-chart" aria-hidden="true">
-                <div class="fake-chart-grid"></div>
-                <div class="fake-chart-header">
-                    <span>World map – project status</span>
-                    <span class="fake-chart-pill">Interactive</span>
-                </div>
-                <div class="fake-chart-bars">
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                </div>
-                <div class="fake-chart-line"></div>
+                <img src="image/Map_e_fuel.png" alt="Power BI page: Map of E‑fuel projects" class="report-image" />
             </aside>
         </div>
 
@@ -838,7 +758,7 @@
                 <ul>
                     <li>The horizontal axis (X‑axis) shows the year.</li>
                     <li>The vertical axis (Y‑axis) shows the cumulative quantity (in tons per year).</li>
-                    <li>The blue bars illustrate how production evolves over time for the selected metric.</li>
+                    <li>The bars illustrate how production evolves over time for the selected metric.</li>
                 </ul>
 
                 <div class="pill-section-title">
@@ -863,19 +783,7 @@
             </article>
 
             <aside class="fake-chart" aria-hidden="true">
-                <div class="fake-chart-grid"></div>
-                <div class="fake-chart-header">
-                    <span>Cumulative production over time</span>
-                    <span class="fake-chart-pill">CO₂ / H₂ / E‑Fuel</span>
-                </div>
-                <div class="fake-chart-bars">
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                </div>
-                <div class="fake-chart-line"></div>
+                <img src="image/cumulative_production.png" alt="Power BI page: Cumulative production of chosen metrics" class="report-image" />
             </aside>
         </div>
 
@@ -944,11 +852,10 @@
                     </li>
                     <li>
                         CO₂ section captures emissions data: technology, emitter, source type capture company, and captured CO₂ volumes.
-                        Blank fields indicate missing published data.
                     </li>
                     <li>
                         E‑fx pathway &amp; e‑fuel production show the synthetic fuel route plus published/estimated fuel tonnage per year.
-                        Blank fields indicate missing published data. Use these to assess project scale and compare them to other entries.
+                        Use these to assess project scale and compare them to other entries.
                     </li>
                 </ul>
 
@@ -968,19 +875,7 @@
             </article>
 
             <aside class="fake-chart" aria-hidden="true">
-                <div class="fake-chart-grid"></div>
-                <div class="fake-chart-header">
-                    <span>Hydrogen‑to‑e‑fuel pathway</span>
-                    <span class="fake-chart-pill">Project view</span>
-                </div>
-                <div class="fake-chart-bars">
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                </div>
-                <div class="fake-chart-line"></div>
+                <img src="image/HESC.png" alt="Power BI page: HESC hydrogen energy supply chain" class="report-image" />
             </aside>
         </div>
 
@@ -1043,19 +938,7 @@
             </article>
 
             <aside class="fake-chart" aria-hidden="true">
-                <div class="fake-chart-grid"></div>
-                <div class="fake-chart-header">
-                    <span>Projects flow – region → power → fuel → sector</span>
-                    <span class="fake-chart-pill">Sankey view</span>
-                </div>
-                <div class="fake-chart-bars">
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                </div>
-                <div class="fake-chart-line"></div>
+                <img src="image/Sankey.png" alt="Power BI page: Sankey projects flow" class="report-image" />
             </aside>
         </div>
 
@@ -1117,19 +1000,7 @@
             </article>
 
             <aside class="fake-chart" aria-hidden="true">
-                <div class="fake-chart-grid"></div>
-                <div class="fake-chart-header">
-                    <span>Company map &amp; project table</span>
-                    <span class="fake-chart-pill">Detail view</span>
-                </div>
-                <div class="fake-chart-bars">
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                    <div class="fake-chart-bar"></div>
-                </div>
-                <div class="fake-chart-line"></div>
+                <img src="image/company_details.png" alt="Power BI page: Company details" class="report-image" />
             </aside>
         </div>
 
