@@ -112,6 +112,12 @@
             letter-spacing: 0.08em;
         }
 
+        .nav-brand-logo {
+            height: 26px;
+            width: auto;
+            object-fit: contain;
+        }
+
         .nav-title {
             display: flex;
             flex-direction: column;
@@ -401,9 +407,10 @@
             color: var(--muted);
         }
 
+        /* now vertical: explanation card then image */
         .section-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+            display: flex;
+            flex-direction: column;
             gap: 1.6rem;
         }
 
@@ -459,9 +466,8 @@
             margin-bottom: 0.3rem;
         }
 
-        /* Container for Power BI screenshots */
+        /* Power BI screenshots */
         .fake-chart {
-            height: 100%;
             border-radius: 20px;
             overflow: hidden;
             background: #000;
@@ -471,8 +477,7 @@
 
         .report-image {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
         }
 
@@ -540,17 +545,9 @@
         }
 
         @media (max-width: 960px) {
-            .hero-grid,
-            .section-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
             .hero-grid {
+                grid-template-columns: minmax(0, 1fr);
                 gap: 2rem;
-            }
-
-            .section-grid {
-                gap: 1.4rem;
             }
         }
 
@@ -587,6 +584,7 @@
             <div class="nav-logo">
                 <span>EF</span>
             </div>
+            <img src="image/eifer_logo.png" alt="EIFER logo" class="nav-brand-logo" />
             <div class="nav-title">
                 <span class="nav-title-main">POWER BI E‑FUEL</span>
                 <span class="nav-title-sub">Interactive dashboards · User guide</span>
