@@ -1,31 +1,227 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mon site</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #f5f7fa, #e9eef8);
-      color: #1f2937;
-    }
-    .box {
-      padding: 2rem 3rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(31,41,55,0.08);
-      background: white;
-      text-align: center;
-      font-size: 1.5rem;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <title>POWER BI E-FUEL PROJECT – USER GUIDE</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #e5e5e5;
+        }
+
+        .page {
+            width: 800px;
+            min-height: 1000px;
+            margin: 0 auto 40px;
+            padding: 80px 90px;
+            background: #ffffff;
+        }
+
+        .cover {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cover h1 {
+            font-size: 28px;
+            letter-spacing: 1px;
+            margin: 0 0 16px;
+        }
+
+        .cover .dash {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .cover h2 {
+            font-size: 24px;
+            margin: 0 0 80px;
+        }
+
+        .cover-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cover-logo img {
+            max-width: 260px;
+            margin-bottom: 14px;
+        }
+
+        .cover-logo p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        h2.page-title {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        h3 {
+            margin-top: 24px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        p {
+            margin: 0 0 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        ul {
+            margin: 0 0 10px 18px;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        ul li {
+            margin-bottom: 4px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-  <div class="box">Je suis un site Web</div>
+
+    <!-- Cover page -->
+    <div class="page cover">
+        <h1>POWER BI E-FUEL PROJECT</h1>
+        <div class="dash">-</div>
+        <h2>USER GUIDE</h2>
+
+        <div class="cover-logo">
+            <!-- Update src to the correct logo path in your project -->
+            <img src="image/eifer_logo.png" alt="eifer logo" />
+            <p>European Institute for Energy Research<br />by EDF and KIT</p>
+        </div>
+    </div>
+
+    <!-- Page 1 -->
+    <div class="page">
+        <h2 class="page-title">Page 1: Map of E-Fuel Projects</h2>
+        <p>
+            This page displays an interactive world map showing all E-Fuel projects included in the
+            dataset. Each point on the map represents a project, and its color indicates the project
+            status (announced, operational, cancelled, etc.).
+        </p>
+
+        <h3>AVAILABLE FILTERS:</h3>
+        <ul>
+            <li><strong>Company</strong>: Displays projects associated with a specific company.</li>
+            <li><strong>Project</strong>: Allows selection of individual projects.</li>
+            <li><strong>Super region</strong>: Filters projects by geographic area (Europe, Asia, Africa, etc.).</li>
+            <li><strong>E-Fuel</strong>: Filters by the type of e-fuel (e-ammonia, e-methanol, e-kerosene, etc.).</li>
+        </ul>
+
+        <h3>HOW TO USE THIS PAGE:</h3>
+        <ul>
+            <li>Click on a geographic area to zoom in.</li>
+            <li>Use the filters on the left and right to focus the analysis on a specific company, e-fuel type, or region.</li>
+            <li>The total number of projects (shown in the bottom right) updates automatically based on selected filters.</li>
+        </ul>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+        <h2 class="page-title">Page 2: Cumulative Production of Chosen Metrics</h2>
+        <p>
+            This page visualizes the cumulative production of different metrics over time, such as CO₂
+            capture, e-fuel production, and hydrogen (H₂) production in ton/year.
+        </p>
+
+        <h3>MAIN CHART:</h3>
+        <ul>
+            <li>The horizontal axis (X-axis) shows the year.</li>
+            <li>The vertical axis (Y-axis) shows the cumulative quantity (in tons per year).</li>
+            <li>The blue bars illustrate how production evolves over time for the selected metric.</li>
+        </ul>
+
+        <h3>AVAILABLE FILTERS:</h3>
+        <ul>
+            <li><strong>Metric</strong>: Choose between CO₂ capture, e-fuel production, or H₂ production.</li>
+            <li><strong>E-Fuel</strong>: Filters by type of e-fuel involved.</li>
+            <li><strong>Super region</strong>: Filters the data by geographic region.</li>
+        </ul>
+
+        <h3>HOW TO USE THIS PAGE:</h3>
+        <ul>
+            <li>Select the desired metric at the bottom of the page to update the chart.</li>
+            <li>Use the filters to analyze production trends in a specific region.</li>
+            <li>The “Count of projects” indicator automatically updates based on the selected filters.</li>
+        </ul>
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page">
+        <h2 class="page-title">Page 3: HESC (Liquified Hydrogen Energy Supply Chain)</h2>
+        <p>
+            This page summarizes the HESC project. It lets you choose one project and see its geographic
+            context view and trace the hydrogen-to-e-fuel pathway from power source through CO₂ capture
+            and fuel output.
+        </p>
+
+        <h3>AVAILABLE FILTERS:</h3>
+        <ul>
+            <li>Use the Project slicer on the left to select one project. This controls every other visual on the page.</li>
+        </ul>
+
+        <h3>HOW TO USE THIS PAGE:</h3>
+        <ul>
+            <li>Select the desired project in the project filter.</li>
+            <li>
+                After selecting a project, click the Open Web Link – Click Here + Ctrl button.
+                Hold Ctrl while clicking to open the external reference in your browser.
+            </li>
+            <li>The map on the right shows the project’s location. Zoom/drag to confirm geographical context.</li>
+            <li>Power Source block shows the renewable feed (e.g., Solar).</li>
+            <li>
+                Electrolyze section lists technology, vendor, installed/published/estimated capacities.
+                Blank fields indicate missing published data; estimated values (e.g., 307 MW) provide the
+                model’s best guess.
+            </li>
+            <li>
+                Hydrogen production boxes display published vs. estimated tonnage per year.
+                Blank fields indicate missing published data.
+            </li>
+            <li>
+                CO₂ section captures emissions data: technology, emitter, source type capture company, and
+                captured CO₂ volumes. Blank fields indicate missing published data.
+            </li>
+            <li>
+                E‑fx pathway &amp; e‑fuel production show the synthetic fuel route plus published/estimated fuel
+                tonnage per year. Blank fields indicate missing published data. Use these to assess project
+                scale and compare them to other entries.
+            </li>
+        </ul>
+
+        <h3>Data Consistency Watch</h3>
+        <p>
+            For some projects, the published values for H₂, CO₂, and E-Fuel are not consistent with each
+            other.
+        </p>
+        <p>
+            Estimations are made using stoichiometric coefficients for each type of fuel: ammonia,
+            methanol, methane, kerosene…
+        </p>
+        <p>
+            This explains the significant discrepancies between the estimate and the published values.
+        </p>
+    </div>
+
 </body>
 </html>
