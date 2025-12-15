@@ -673,7 +673,7 @@
                 <div class="section-title">Map of E‑Fuel Projects</div>
             </div>
             <div class="section-tag">
-                Explore the global project landscape and filter by company, region, and e‑fuel type.
+                Explore the global project landscape and filter by company, region, fuel type, technology and status.
             </div>
         </div>
 
@@ -682,8 +682,8 @@
                 <h3>What you see</h3>
                 <p>
                     This page displays an interactive world map showing all E‑Fuel projects included in the
-                    dataset. Each point on the map represents a project, and its color indicates the project
-                    status (announced, operational, cancelled, etc.).
+                    dataset. Each point on the map represents a project, and its color indicates the selected
+                    legend (for example electrolyzer technology).
                 </p>
 
                 <div class="pill-section-title">
@@ -694,7 +694,11 @@
                     <li><strong>Company</strong>: Displays projects associated with a specific company.</li>
                     <li><strong>Project</strong>: Allows selection of individual projects.</li>
                     <li><strong>Super region</strong>: Filters projects by geographic area (Europe, Asia, Africa, etc.).</li>
-                    <li><strong>E‑Fuel</strong>: Filters by the type of e‑fuel (e‑ammonia, e‑methanol, e‑kerosene, etc.).</li>
+                    <li><strong>E‑Fuel</strong>: Filters by the type of e‑fuel (e‑ammonia, e‑diesel, e‑kerosene, etc.).</li>
+                    <li><strong>Power source</strong>: Filters by the primary energy source (e.g. wind, hydro, geothermal, off‑shore wind).</li>
+                    <li><strong>Country</strong>: Restricts the map to one or several countries.</li>
+                    <li><strong>End‑use sector</strong>: Filters projects by the final use of the fuel (aviation, chemicals, fertilizer, shipping, etc.).</li>
+                    <li><strong>Status</strong>: Filters by project status (announced, under construction, operational, cancelled, etc.).</li>
                 </ul>
 
                 <div class="pill-section-title">
@@ -703,7 +707,8 @@
                 </div>
                 <ul>
                     <li>Click on a geographic area to zoom in.</li>
-                    <li>Use the filters on the left and right to focus the analysis on a specific company, e‑fuel type, or region.</li>
+                    <li>Use the filters on the left and right to focus the analysis on a specific company, e‑fuel type, region, power source, sector or status.</li>
+                    <li>Use the buttons at the bottom of the page to change the legend (coloring) between E‑Fuel, CO₂ source, Electrolyzer technology, Power source and Status.</li>
                     <li>The total number of projects (shown in the bottom right) updates automatically based on selected filters.</li>
                 </ul>
             </article>
@@ -735,7 +740,7 @@
                 <div class="section-title">Cumulative Production of Chosen Metrics</div>
             </div>
             <div class="section-tag">
-                Track how CO₂ capture, e‑fuel output, and hydrogen production evolve over time.
+                Track how CO₂ capture, e‑fuel output, and hydrogen production evolve over time, and filter by fuel type, region, power source and country.
             </div>
         </div>
 
@@ -749,7 +754,7 @@
                 <ul>
                     <li>The horizontal axis (X‑axis) shows the year.</li>
                     <li>The vertical axis (Y‑axis) shows the cumulative quantity (in tons per year).</li>
-                    <li>The bars illustrate how production evolves over time for the selected metric.</li>
+                    <li>The bars illustrate how production evolves over time for the selected metric (CO₂ capture, e‑fuel production or H₂ production).</li>
                 </ul>
 
                 <div class="pill-section-title">
@@ -757,9 +762,11 @@
                     Available filters
                 </div>
                 <ul>
-                    <li><strong>Metric</strong>: Choose between CO₂ capture, e‑fuel production, or H₂ production.</li>
-                    <li><strong>E‑Fuel</strong>: Filters by type of e‑fuel involved.</li>
-                    <li><strong>Super region</strong>: Filters the data by geographic region.</li>
+                    <li><strong>Metric</strong>: Buttons at the bottom let you switch between CO₂ capture, e‑fuel production, and H₂ production.</li>
+                    <li><strong>E‑Fuel</strong>: Filters by the type of e‑fuel involved (e‑ammonia, e‑diesel, e‑kerosene, e‑methane, etc.).</li>
+                    <li><strong>Super region</strong>: Filters the data by geographic region (Africa, Asia, Europe, Latin America, Middle East, etc.).</li>
+                    <li><strong>Power source</strong>: Filters by the power source driving the production (e.g. geothermal, hydro, off‑shore wind).</li>
+                    <li><strong>Country</strong>: Focuses on the cumulative production for one or several countries.</li>
                 </ul>
 
                 <div class="pill-section-title">
@@ -768,8 +775,8 @@
                 </div>
                 <ul>
                     <li>Select the desired metric at the bottom of the page to update the chart.</li>
-                    <li>Use the filters to analyze production trends in a specific region.</li>
-                    <li>The “Count of projects” indicator automatically updates based on the selected filters.</li>
+                    <li>Use the filters to analyse production trends in a specific region, country, power source or e‑fuel type.</li>
+                    <li>The “Count of project” indicator automatically updates based on the selected filters.</li>
                 </ul>
             </article>
 
@@ -990,9 +997,9 @@
                 </ul>
             </article>
 
-            <aside class="fake-chart" aria-hidden="true">
-                <img src="image/company_details.png" alt="Power BI page: Company details" class="report-image" />
-            </aside>
+        <aside class="fake-chart" aria-hidden="true">
+            <img src="image/company_details.png" alt="Power BI page: Company details" class="report-image" />
+        </aside>
         </div>
 
         <div class="pager">
@@ -1017,7 +1024,7 @@
                 <div class="section-title">Status details of E‑Fuel projects</div>
             </div>
             <div class="section-tag">
-                Inspect how project statuses are distributed in a selected year and slice by region, country and e‑fuel type.
+                Inspect how project statuses are distributed in a selected year and slice by region, country, power source, sector and e‑fuel type.
             </div>
         </div>
 
@@ -1038,8 +1045,9 @@
                 <ul>
                     <li><strong>Super region</strong>: Filter the status breakdown for a specific world region (Europe, Asia, North America, etc.).</li>
                     <li><strong>Country</strong>: Focus on projects within one or several countries.</li>
-                    <li><strong>E‑Fuel</strong>: Limit the view to a specific e‑fuel type (e‑ammonia, e‑methanol, e‑kerosene, etc.).</li>
-                    <li><strong>Year</strong> (if available): Choose the reference year to see how the status mix evolves over time.</li>
+                    <li><strong>Power source</strong>: Filter by the energy source used in each project (e.g. geothermal, hydro, off‑shore wind).</li>
+                    <li><strong>End‑use sector</strong>: Filter by the sector using the e‑fuel (aviation, chemicals, fertilizer, shipping, etc.).</li>
+                    <li><strong>E‑Fuel</strong>: Limit the view to a specific e‑fuel type (e‑ammonia, e‑diesel, e‑kerosene, e‑methane, etc.).</li>
                 </ul>
 
                 <div class="pill-section-title">
@@ -1047,15 +1055,14 @@
                     How to use this page
                 </div>
                 <ul>
-                    <li>Use the slicers on the left and right to select the super region, country and e‑fuel type you want to analyse.</li>
+                    <li>Use the slicers on the left and right to select the super region, country, power source, sector and e‑fuel type you want to analyse.</li>
                     <li>Read the pie chart to see how many projects fall into each status category and what percentage they represent.</li>
                     <li>Combine filters (for example: a single country and one e‑fuel type) to understand where projects are mostly announced, under construction or already operational.</li>
-                    <li>Use the “Count of projects” card to check the total number of projects currently included in your filtered selection.</li>
+                    <li>Use the “Count of project” card to check the total number of projects currently included in your filtered selection.</li>
                 </ul>
             </article>
 
             <aside class="fake-chart" aria-hidden="true">
-                <!-- Update the filename if you save the screenshot under another name -->
                 <img src="image/status_details.png" alt="Power BI page: Status details of e‑fuel projects" class="report-image" />
             </aside>
         </div>
